@@ -3,7 +3,7 @@
 Seattle University (SQ 2019)  
 An implementation of the game of checkers with an AI player for the user to compete against.
 
-Goal: Our goal is to create an intelligent AI that will rely on board state to determine the next best move and (Ideally) beat a human player. This being accomplished by
+Goal: Our goal is to create an intelligent AI that will rely on board state to determine the next best move and (Ideally) beat a human player. Utilizing algorithms learned throughout the course of CPSC4610, we will build the AI player to compete at the level of the user.
 
 Will Lathrop  
 [lathropw@seattleu.edu](mailto:lathropw@seattleu.edu)
