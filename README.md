@@ -12,3 +12,8 @@ Nick Jones
 [jonesn6@seattleu.edu](mailto:jonesn6@seattleu.edu)
 
 <!-- Insert image here -->
+
+Relevant links:  
+[AI Checkers | Computer Science and Engineering | Taylor University](https://cse.taylor.edu/projects/ai-checkers/)  
+[Checkers with Artificial Intelligence | Czech Technical University in Prague](https://dspace.cvut.cz/bitstream/handle/10467/61630/F3-BP-2015-Dolezal-Matej-BP.pdf?sequence=11&isAllowed=y)  
+[Reinforcement Learning Project: AI Checkers Player | University Utrecht](https://www.researchgate.net/publication/242405861_Reinforcement_learning_project_AI_Checkers_Player)
