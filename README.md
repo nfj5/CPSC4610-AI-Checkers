@@ -12,7 +12,9 @@ Nick Jones
 [jonesn6@seattleu.edu](mailto:jonesn6@seattleu.edu)
 
 ![alt text](checkers.png)
+
 ![alt text](Seattle University CPSC4610 - AI Checkers.png)
+
 Relevant links:  
 [AI Checkers | Computer Science and Engineering | Taylor University](https://cse.taylor.edu/projects/ai-checkers/)  
 [Checkers with Artificial Intelligence | Czech Technical University in Prague](https://dspace.cvut.cz/bitstream/handle/10467/61630/F3-BP-2015-Dolezal-Matej-BP.pdf?sequence=11&isAllowed=y)  
