@@ -11,9 +11,9 @@ Will Lathrop
 Nick Jones  
 [jonesn6@seattleu.edu](mailto:jonesn6@seattleu.edu)
 
-![alt text](checkers.png)
+![alt text](https://nfj5.github.io/CPSC4610-AI-Checkers/checkers.png)
 
-![alt text](Seattle University CPSC4610 - AI Checkers.png)
+![alt text](https://nfj5.github.io/CPSC4610-AI-Checkers/Seattle%20University%20CPSC4610%20-%20AI%20Checkers.png)
 
 Relevant links:  
 [AI Checkers | Computer Science and Engineering | Taylor University](https://cse.taylor.edu/projects/ai-checkers/)  
