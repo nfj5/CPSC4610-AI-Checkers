@@ -1,5 +1,5 @@
 
-
+#put into function
 BoardList = []
 
 
@@ -40,11 +40,13 @@ def populateBoard():#Creates peices on board DONE
 			 	BoardList[7-x][y] = check
 			 	check = check+2
 			
-def isValidMove(x,y,modulus, proX, proY):#in progress
+def isValidMove(x,y,modulus, proX, proY):#in progress - FULL REDESIGN - make all valid moves a letter on the board then choose from all letters
 	if(BoardList[proX][proY] == "  "):
 		return [True, proX, proY]
 	if((BoardList[proX][proY]%2) != modulus):
 		if(BoardList[proX+(proX-X)])
+
+
 
 def validateBoard(mod):#Kings pieces and returns false if game is over DONE / WATCH MODULUS
 	for x in range(8):
@@ -64,6 +66,8 @@ def moveForTurn():
 
 
 def AIturn():
+
+
 
 def runGame():
 
