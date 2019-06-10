@@ -1,4 +1,3 @@
-
 #put into function
 BoardList = []
 
@@ -40,15 +39,98 @@ def populateBoard():#Creates peices on board DONE
 			 	BoardList[7-x][y] = check
 			 	check = check+2
 			
-def isValidMove(x,y,modulus, proX, proY):#in progress - FULL REDESIGN - make all valid moves a letter on the board then choose from all letters
+
+
+def recursivePlayerPrimer(x,y): # {[[x,y],[jumped peices],true],
+					#  [x,y] [12, 14] [false]]}
+
+
+	if(BoardList[x][y]) 
+
+def recursivePlayerEngine(x,y, removedList, listToAdd):
+
+	tempRemoved = removedList
+
+	if((x-1 > -1) & (y+1 < 8):
+		if(boardList[x-1][y+1] == "  "):
+			#nonrecursive return
+		else if((boardList[x-1][y+1]%2 != boardList[x][y]%2) & (x-2 > -1) & (y+2 < 8)):
+			if(boardList[x-2][y+2] == "  "):
+				boardList[x-2][y+2] == boardList[x][y]
+				tempRemoved.append(boardList[x+1][y+1])
+				#recursive plus list
+				boardList[x-2][y+2] == "  "
+
+	tempRemoved = removedList
+
+	if((x+1 < 8) & (y+1 < 8):
+		if(boardList[x+1][y+1] == "  "):
+			#no recursive end
+		else if((boardList[x+1][y+1]%2 != boardList[x][y]%2) & (x+2 < 8) & (y+2 < 8)):
+			if(boardList[x+2][y+2] == "  "):
+				boardList[x+2][y+2] == boardList[x][y]
+				tempRemoved.append(boardList[x+1][y+1])
+				#recursive plus list
+				boardList[x+2][y+2] == "  "
+
+
+	if(BoardList[x][y] > 50):
+		tempRemoved = removedList
+
+		if((x-1 > -1) & (y-1 > -1):
+			if(boardList[x-1][y-1] == "  "):
+				#nonrecursive return
+			else if((boardList[x-1][y-1]%2 != boardList[x][y]%2) & (x-2 > -1) & (y-2 > -1)):
+				if(boardList[x-2][y-2] == "  "):
+					boardList[x-2][y-2] == boardList[x][y]
+					tempRemoved.append(boardList[x+1][y-1])
+					#recursive plus list
+					boardList[x-2][y+2] == "  "
+
+		tempRemoved = removedList
+
+		if((x+1 < 8) & (y-1 > -1):
+			if(boardList[x+1][y-1] == "  "):
+				#no recursive end
+			else if((boardList[x+1][y-1]%2 != boardList[x][y]%2) & (x-2 < 8) & (y-2 >0)):
+				if(boardList[x+2][y+2] == "  "):
+					boardList[x+2][y+2] == boardList[x][y]
+					tempRemoved.append(boardList[x+1][y-1])
+					#recursive plus list
+					boardList[x+2][y+2] == "  "
+
+
+	return 
+
+
+
+
+
+
+
+
+
+def isValidMove(x,y):#in progress - FULL REDESIGN - make all valid moves a letter on the board then choose from all letters
+	
+	if(boardList[])
+
+
 	if(BoardList[proX][proY] == "  "):
 		return [True, proX, proY]
 	if((BoardList[proX][proY]%2) != modulus):
 		if(BoardList[proX+(proX-X)])
 
+	
+
+	#check which peice it is
+		#check if its over 50
+			#check all directions
+		#else regular moves
 
 
-def validateBoard(mod):#Kings pieces and returns false if game is over DONE / WATCH MODULUS
+
+
+def validateBoard(mod):#Kings pieces and returns false if game is over DONE
 	for x in range(8):
 		if((BoardList[0][x]%2 == 0) & (BoardList[0][x] < 50)):
 			BoardList[0][x] = BoardList[0][x] + 40
@@ -57,8 +139,9 @@ def validateBoard(mod):#Kings pieces and returns false if game is over DONE / WA
 
 	for x in BoardList:
 		for y in x:
-			if(y%mod != 0):
-				return True
+			if(y != " "):
+				if(y%mod != 0):
+					return True
 	return False
 
 
@@ -101,6 +184,11 @@ populateBoard()
 
 
 displayBoard()
+
+
+
+
+
 
 
 
