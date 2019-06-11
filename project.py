@@ -57,22 +57,24 @@ def recursivePlayerPrimer(x,y): # {[[x,y],[jumped peices],true],
 			listToAppend.append(listJumped)#done LEFT UPPER
 			listOfMoves.append(listToAppend)
 
-		elif ((x-2 > -1) & (y-2 > -1) & (BoardList[x-1][y-1]%2 != BoardList[x][y]%2)):
-			if(BoardList[x-2][y-2] == "  "):
-				BoardList[x-2][y-2] == BoardList[x][y]
-				listToAppend = []
-				listXY = []
-				listXY.append(x-2)
-				listXY.append(y-2)
-				listJumped = []
-				listJumped.append(BoardList[x-1][y-1])
-				listToAppend.append(listXY)
-				listToAppend.append(listJumped)
-				listOfMoves.append(listToAppend)
-				######APPEND CURRENT SOLUTION THEN ADD MORE recursively
-				recursivePlayerEngine(x-2,y-2, listJumped, listToAppend)
-				############recursive plus list########## LEFT JUMP
-				BoardList[x-2][y-2] == "  "
+		elif ((x-2 > -1) & (y-2 > -1):
+			if BoardList[x-1][y-1] != "  " and BoardList[x][y] != "  ":
+				if(BoardList[x-1][y-1]%2 != BoardList[x][y]%2)):
+					if(BoardList[x-2][y-2] == "  "):
+						BoardList[x-2][y-2] == BoardList[x][y]
+						listToAppend = []
+						listXY = []
+						listXY.append(x-2)
+						listXY.append(y-2)
+						listJumped = []
+						listJumped.append(BoardList[x-1][y-1])
+						listToAppend.append(listXY)
+						listToAppend.append(listJumped)
+						listOfMoves.append(listToAppend)
+						######APPEND CURRENT SOLUTION THEN ADD MORE recursively
+						recursivePlayerEngine(x-2,y-2, listJumped, listToAppend)
+						############recursive plus list########## LEFT JUMP
+						BoardList[x-2][y-2] == "  "
 
 	if((x-1 > -1) & (y+1 < 8)):
 		if(BoardList[x-1][y+1] == "  "):
@@ -85,22 +87,28 @@ def recursivePlayerPrimer(x,y): # {[[x,y],[jumped peices],true],
 			listToAppend.append(listJumped)#done RIGHT UPPER
 			listOfMoves.append(listToAppend)
 
-		elif ((BoardList[x-1][y+1]%2 != BoardList[x][y]%2) & (x-2 > -1) & (y+2 < 8)):
-			if(BoardList[x-2][y+2] == "  "):
-				BoardList[x-2][y+2] == BoardList[x][y]
-				listToAppend = []
-				listXY = []
-				listXY.append(x-2)
-				listXY.append(y+2)
-				listJumped = []
-				listJumped.append(BoardList[x-1][y+1])
-				listToAppend.append(listXY)
-				listToAppend.append(listJumped)
-				listOfMoves.append(listToAppend)
-				######APPEND CURRENT SOLUTION THEN ADD MORE recursively
-				recursivePlayerEngine(x-2,y+2, listJumped, listToAppend)
-				###########recursive plus list##########
-				BoardList[x-2][y+2] == "  "
+		elif ((BoardList[x-1][y+1]%2 != BoardList[x][y]%2):
+			if BoardList[x-1][y+1] != "  " and BoardList[x][y] != "  ":
+				if (x-2 > -1) & (y+2 < 8)):
+					if(BoardList[x-2][y+2] == "  "):
+						BoardList[x-2][y+2] == BoardList[x][y]
+						listToAppend = []
+						listXY = []
+						listXY.append(x-2)
+						listXY.append(y+2)
+						listJumped = []
+						listJumped.append(BoardList[x-1][y+1])
+						listToAppend.append(listXY)
+						listToAppend.append(listJumped)
+						listOfMoves.append(listToAppend)
+						######APPEND CURRENT SOLUTION THEN ADD MORE recursively
+						recursivePlayerEngine(x-2,y+2, listJumped, listToAppend)
+						###########recursive plus list##########
+						BoardList[x-2][y+2] == "  "
+
+
+
+
 		#########################################OVER 50 SPEARATION
 		if(BoardList[x][y] > 49):
 			if((x+1 < 8) & (y+1 < 8)):
@@ -114,22 +122,24 @@ def recursivePlayerPrimer(x,y): # {[[x,y],[jumped peices],true],
 					listToAppend.append(listJumped)#done RIGHT UPPER
 					listOfMoves.append(listToAppend)
 
-				elif ((BoardList[x+1][y+1]%2 != BoardList[x][y]%2) & (x+2 < 8) & (y+2 < 8)):
-					if(BoardList[x+2][y+2] == "  "):
-						BoardList[x+2][y+2] == BoardList[x][y]
-						listToAppend = []
-						listXY = []
-						listXY.append(x+2)
-						listXY.append(y+2)
-						listJumped = []
-						listJumped.append(BoardList[x+1][y+1])
-						listToAppend.append(listXY)
-						listToAppend.append(listJumped)
-						listOfMoves.append(listToAppend)
-						######APPEND CURRENT SOLUTION THEN ADD MORE recursively
-						recursivePlayerEngine(x+2,y+2, listJumped, listToAppend)
-						###########recursive plus list########## LEFT JUMP
-						BoardList[x-2][y+2] == "  "
+				elif ((BoardList[x+1][y+1]%2 != BoardList[x][y]%2)
+					if BoardList[x+1][y+1] != "  " and BoardList[x][y] != "  ":
+						if(x+2 < 8) & (y+2 < 8)):
+							if(BoardList[x+2][y+2] == "  "):
+								BoardList[x+2][y+2] == BoardList[x][y]
+								listToAppend = []
+								listXY = []
+								listXY.append(x+2)
+								listXY.append(y+2)
+								listJumped = []
+								listJumped.append(BoardList[x+1][y+1])
+								listToAppend.append(listXY)
+								listToAppend.append(listJumped)
+								listOfMoves.append(listToAppend)
+								######APPEND CURRENT SOLUTION THEN ADD MORE recursively
+								recursivePlayerEngine(x+2,y+2, listJumped, listToAppend)
+								###########recursive plus list########## LEFT JUMP
+								BoardList[x-2][y+2] == "  "
 
 			if((x+1 < 8) & (y-1 > -1)):
 				if(BoardList[x+1][y-1] == "  "):
@@ -142,22 +152,24 @@ def recursivePlayerPrimer(x,y): # {[[x,y],[jumped peices],true],
 					listToAppend.append(listJumped)#done LEFT UPPER
 					listOfMoves.append(listToAppend)
 
-				elif ((x+2 < 8) & (y-2 > -1) & (BoardList[x+1][y+1]%2 != BoardList[x][y]%2)):
-					if(BoardList[x+2][y+2] == "  "):
-						BoardList[x+2][y+2] == BoardList[x][y]
-						listToAppend = []
-						listXY = []
-						listXY.append(x+2)
-						listXY.append(y+2)
-						listJumped = []
-						listJumped.append(BoardList[x+1][y+1])
-						listToAppend.append(listXY)
-						listToAppend.append(listJumped)
-						listOfMoves.append(listToAppend)
-						######APPEND CURRENT SOLUTION THEN ADD MORE recursively
-						recursivePlayerEngine(x+2,y+2, listJumped, listToAppend)
-						############recursive plus list########## LEFT JUMP
-						BoardList[x+2][y+2] == "  "
+				elif ((x+2 < 8) & (y-2 > -1):
+					if BoardList[x+1][y-1] != "  " and BoardList[x][y] != "  ":
+						if(BoardList[x+1][y-1]%2 != BoardList[x][y]%2)):
+							if(BoardList[x+2][y-2] == "  "):
+								BoardList[x+2][y-2] == BoardList[x][y]
+								listToAppend = []
+								listXY = []
+								listXY.append(x+2)
+								listXY.append(y-2)
+								listJumped = []
+								listJumped.append(BoardList[x+1][y-1])
+								listToAppend.append(listXY)
+								listToAppend.append(listJumped)
+								listOfMoves.append(listToAppend)
+								######APPEND CURRENT SOLUTION THEN ADD MORE recursively
+								recursivePlayerEngine(x+2,y-2, listJumped, listToAppend)
+								############recursive plus list########## LEFT JUMP
+								BoardList[x+2][y-2] == "  "
 
 	return listOfMoves
 
@@ -167,41 +179,45 @@ def recursivePlayerEngine(x,y, removedList, listToAdd):
 	tempRemoved = removedList
 
 
-	if ((x-2 > -1) & (y-2 > -1) & (BoardList[x-1][y-1]%2 != BoardList[x][y]%2)):
-		if(BoardList[x-2][y-2] == "  "):
-			BoardList[x-2][y-2] == BoardList[x][y]
-			listToAppend = []
-			listXY = []
-			listXY.append(x-2)
-			listXY.append(y-2)
-			tempRemoved.append(BoardList[x-1][y-1])
-			listToAppend.append(listXY)
-			listToAppend.append(tempRemoved)
-			listToAdd.append(listToAppend)
-			######APPEND CURRENT SOLUTION THEN ADD MORE recursively
-			recursivePlayerEngine(x-2,y-2, tempRemoved, listToAdd)
-			############recursive plus list########## LEFT JUMP
-			BoardList[x-2][y-2] == "  "
+	if ((x-2 > -1) & (y-2 > -1):
+		if BoardList[x-1][y-1] != "  " and BoardList[x][y] != "  ":
+			if(BoardList[x-1][y-1]%2 != BoardList[x][y]%2)):
+				if(BoardList[x-2][y-2] == "  "):
+					BoardList[x-2][y-2] == BoardList[x][y]
+					listToAppend = []
+					listXY = []
+					listXY.append(x-2)
+					listXY.append(y-2)
+					tempRemoved.append(BoardList[x-1][y-1])
+					listToAppend.append(listXY)
+					listToAppend.append(tempRemoved)
+					listToAdd.append(listToAppend)
+					######APPEND CURRENT SOLUTION THEN ADD MORE recursively
+					recursivePlayerEngine(x-2,y-2, tempRemoved, listToAdd)
+					############recursive plus list########## LEFT JUMP
+					BoardList[x-2][y-2] == "  "
 
 	tempRemoved = removedList
 
 
 	if((x-1 < 8) & (y+1 < 8)):
-		if ((BoardList[x-1][y+1]%2 != BoardList[x][y]%2) & (x-2 > -1) & (y+2 < 8)):
-			if(BoardList[x-2][y+2] == "  "):
-				BoardList[x-2][y+2] == BoardList[x][y]
-				listToAppend = []
-				listXY = []
-				listXY.append(x-2)
-				listXY.append(y+2)
-				tempRemoved.append(BoardList[x-1][y+1])
-				listToAppend.append(listXY)
-				listToAppend.append(tempRemoved)
-				listToAdd.append(listToAppend)
-				######APPEND CURRENT SOLUTION THEN ADD MORE recursively
-				recursivePlayerEngine(x-2,y+2, tempRemoved, listToAdd)
-				###########recursive plus list##########
-				BoardList[x-2][y+2] == "  "
+		if BoardList[x-1][y+1] != "  " and BoardList[x][y] != "  ":
+			if ((BoardList[x-1][y+1]%2 != BoardList[x][y]%2):
+				if (x-2 > -1) & (y+2 < 8)):
+					if(BoardList[x-2][y+2] == "  "):
+						BoardList[x-2][y+2] == BoardList[x][y]
+						listToAppend = []
+						listXY = []
+						listXY.append(x-2)
+						listXY.append(y+2)
+						tempRemoved.append(BoardList[x-1][y+1])
+						listToAppend.append(listXY)
+						listToAppend.append(tempRemoved)
+						listToAdd.append(listToAppend)
+						######APPEND CURRENT SOLUTION THEN ADD MORE recursively
+						recursivePlayerEngine(x-2,y+2, tempRemoved, listToAdd)
+						###########recursive plus list##########
+						BoardList[x-2][y+2] == "  "
 
 
 
@@ -211,45 +227,46 @@ def recursivePlayerEngine(x,y, removedList, listToAdd):
 	tempRemoved = removedList
 	if(BoardList[x][y] > 49):
 		tempRemoved = removedList
-		if ((x+2 < 8) & (y+2 < 8) & (BoardList[x+1][y+1]%2 != BoardList[x][y]%2)):
-			if(BoardList[x+2][y+2] == "  "):
-				BoardList[x+2][y+2] == BoardList[x][y]
-				listToAppend = []
-				listXY = []
-				listXY.append(x+2)
-				listXY.append(y+2)
-				tempRemoved.append(BoardList[x+1][y+1])
-				listToAppend.append(listXY)
-				listToAppend.append(tempRemoved)
-				listToAdd.append(listToAppend)
-				######APPEND CURRENT SOLUTION THEN ADD MORE recursively
-				recursivePlayerEngine(x+2,y+2, tempRemoved, listToAdd)
-				############recursive plus list##########
-				BoardList[x+2][y+2] == "  "
+		if BoardList[x+1][y+1] != "  " and BoardList[x][y] != "  ":
+			if ((x+2 < 8) & (y+2 < 8):
+				if (BoardList[x+1][y+1]%2 != BoardList[x][y]%2)):
+					if(BoardList[x+2][y+2] == "  "):
+						BoardList[x+2][y+2] == BoardList[x][y]
+						listToAppend = []
+						listXY = []
+						listXY.append(x+2)
+						listXY.append(y+2)
+						tempRemoved.append(BoardList[x+1][y+1])
+						listToAppend.append(listXY)
+						listToAppend.append(tempRemoved)
+						listToAdd.append(listToAppend)
+						######APPEND CURRENT SOLUTION THEN ADD MORE recursively
+						recursivePlayerEngine(x+2,y+2, tempRemoved, listToAdd)
+						############recursive plus list##########
+						BoardList[x+2][y+2] == "  "
 
 
 		tempRemoved = removedList
 
 		if((x+1 < 8) & (y-1 > -1)):#bottom left
-			if ((BoardList[x+1][y-1]%2 != BoardList[x][y]%2) & (x+2 < 8) & (y-2 > -1)):
-				if(BoardList[x+2][y-2] == "  "):
-					BoardList[x+2][y-2] == BoardList[x][y]
-					listToAppend = []
-					listXY = []
-					listXY.append(x+2)
-					listXY.append(y-2)
-					tempRemoved.append(BoardList[x+1][y-1])
-					listToAppend.append(listXY)
-					listToAppend.append(tempRemoved)
-					listToAdd.append(listToAppend)
-					######APPEND CURRENT SOLUTION THEN ADD MORE recursively
-					recursivePlayerEngine(x+2,y-2, tempRemoved, listToAdd)
-					###########recursive plus list########## LEFT JUMP
-					BoardList[x+2][y-2] == "  "
+			if BoardList[x+1][y-1] != "  " and BoardList[x][y] != "  ":
+				if ((BoardList[x+1][y-1]%2 != BoardList[x][y]%2):
+					if (x+2 < 8) & (y-2 > -1)):
+					if(BoardList[x+2][y-2] == "  "):
+						BoardList[x+2][y-2] == BoardList[x][y]
+						listToAppend = []
+						listXY = []
+						listXY.append(x+2)
+						listXY.append(y-2)
+						tempRemoved.append(BoardList[x+1][y-1])
+						listToAppend.append(listXY)
+						listToAppend.append(tempRemoved)
+						listToAdd.append(listToAppend)
+						######APPEND CURRENT SOLUTION THEN ADD MORE recursively
+						recursivePlayerEngine(x+2,y-2, tempRemoved, listToAdd)
+						###########recursive plus list########## LEFT JUMP
+						BoardList[x+2][y-2] == "  "
 	return
-
-
-
 def recursiveAiPrimer(x,y):
 
 	listOfMoves = []
