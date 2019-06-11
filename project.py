@@ -269,26 +269,28 @@ def recursiveAiPrimer(x,y):
 			listToAppend.append(y)
 			listOfMoves.append(listToAppend)
 
-		elif ((x+2 < 8) & (y-2 > -1) & (BoardList[x+1][y-1]%2 != BoardList[x][y]%2)):
-			if(BoardList[x+2][y-2] == "  "):
-				BoardList[x+2][y-2] == BoardList[x][y]
-				listToAppend = []
-				listXY = []
-				listXY.append(x+2)
-				listXY.append(y-2)
-				listJumped = []
-				listJumped.append(BoardList[x+1][y-1])
-				listToAppend.append(listXY)
-				listToAppend.append(listJumped)
-				fitness = 3
-				listToAppend.append(fitness)
-				listToAppend.append(x)
-				listToAppend.append(y)
-				listOfMoves.append(listToAppend)
-				######APPEND CURRENT SOLUTION THEN ADD MORE recursively
-				recursivePlayerEngine(x+2,y-2, listJumped, listToAppend, fitness, x, y)
-				############recursive plus list########## LEFT JUMP
-				BoardList[x+2][y-2] == "  "
+		elif (x+2 < 8) & (y-2 > -1):
+			if BoardList[x+1][y-1] != "  " and BoardList[x][y] != "  ":
+				if (BoardList[x+1][y-1]%2 != BoardList[x][y]%2):
+					if(BoardList[x+2][y-2] == "  "):
+						BoardList[x+2][y-2] == BoardList[x][y]
+						listToAppend = []
+						listXY = []
+						listXY.append(x+2)
+						listXY.append(y-2)
+						listJumped = []
+						listJumped.append(BoardList[x+1][y-1])
+						listToAppend.append(listXY)
+						listToAppend.append(listJumped)
+						fitness = 3
+						listToAppend.append(fitness)
+						listToAppend.append(x)
+						listToAppend.append(y)
+						listOfMoves.append(listToAppend)
+						######APPEND CURRENT SOLUTION THEN ADD MORE recursively
+						recursiveAiEngine(x+2,y-2, listJumped, listToAppend, fitness, x, y)
+						############recursive plus list########## LEFT JUMP
+						BoardList[x+2][y-2] == "  "
 
 	if((x+1 < 8) & (y+1 < 8)):
 		if(BoardList[x+1][y+1] == "  "):
@@ -323,7 +325,7 @@ def recursiveAiPrimer(x,y):
 				listToAppend.append(y)
 				listOfMoves.append(listToAppend)
 				######APPEND CURRENT SOLUTION THEN ADD MORE recursively
-				recursivePlayerEngine(x+2,y+2, listJumped, listToAppend, fitness, x, y)
+				recursiveAiEngine(x+2,y+2, listJumped, listToAppend, fitness, x, y)
 				###########recursive plus list##########
 				BoardList[x+2][y+2] == "  "
 
@@ -362,7 +364,7 @@ def recursiveAiPrimer(x,y):
 						listToAppend.append(y)
 						listOfMoves.append(listToAppend)
 						######APPEND CURRENT SOLUTION THEN ADD MORE recursively
-						recursivePlayerEngine(x-2,y+2, listJumped, listToAppend, fitness, x, y)
+						recursiveAiEngine(x-2,y+2, listJumped, listToAppend, fitness, x, y)
 						###########recursive plus list########## LEFT JUMP
 						BoardList[x-2][y+2] == "  "
 
@@ -398,7 +400,7 @@ def recursiveAiPrimer(x,y):
 						listToAppend.append(y)
 						listOfMoves.append(listToAppend)
 						######APPEND CURRENT SOLUTION THEN ADD MORE recursively
-						recursivePlayerEngine(x-2,y+2, listJumped, listToAppend, fitness, x, y)
+						recursiveAiEngine(x-2,y+2, listJumped, listToAppend, fitness, x, y)
 						############recursive plus list########## LEFT JUMP
 						BoardList[x-2][y+2] == "  "
 
@@ -412,47 +414,52 @@ def recursiveAiEngine(x,y, removedList, listToAdd, fitnessIn, xOriginal, yOrigin
 	tempRemoved = removedList
 
 
-	if ((x+2 < 8) & (y-2 > -1) & (BoardList[x+1][y-1]%2 != BoardList[x][y]%2)):
-		if(BoardList[x+2][y-2] == "  "):
-			BoardList[x+2][y-2] == BoardList[x][y]
-			listToAppend = []
-			listXY = []
-			listXY.append(x+2)
-			listXY.append(y-2)
-			tempRemoved.append(BoardList[x+1][y-1])
-			listToAppend.append(listXY)
-			listToAppend.append(tempRemoved)
-			fitnessIn = fitness + 3
-			listToAppend.append(xOriginal)
-			listToAppend.append(yOriginal)
-			listToAdd.append(listToAppend)
-			######APPEND CURRENT SOLUTION THEN ADD MORE recursively
-			recursivePlayerEngine(x+2,y-2, tempRemoved, listToAdd, fitnessIn, xOriginal, yOriginal)
-			############recursive plus list########## LEFT JUMP
-			BoardList[x+2][y-2] == "  "
+	if (x+2 < 8) & (y-2 > -1):
+		if BoardList[x+1][y-1] != "  " and BoardList[x][y] != "  ":
+			if BoardList[x+1][y-1]%2 != BoardList[x][y]%2:
+				if(BoardList[x+2][y-2] == "  "):
+					BoardList[x+2][y-2] == BoardList[x][y]
+					listToAppend = []
+					listXY = []
+					listXY.append(x+2)
+					listXY.append(y-2)
+					tempRemoved.append(BoardList[x+1][y-1])
+					listToAppend.append(listXY)
+					listToAppend.append(tempRemoved)
+					fitnessIn += 3
+					listToAppend.append(fitnessIn)
+					listToAppend.append(xOriginal)
+					listToAppend.append(yOriginal)
+					listToAdd.append(listToAppend)
+					######APPEND CURRENT SOLUTION THEN ADD MORE recursively
+					recursiveAiEngine(x+2,y-2, tempRemoved, listToAdd, fitnessIn, xOriginal, yOriginal)
+					############recursive plus list########## LEFT JUMP
+					BoardList[x+2][y-2] == "  "
 
 	tempRemoved = removedList
 
 
 	if((x+1 < 8) & (y+1 < 8)):
-		if ((BoardList[x+1][y+1]%2 != BoardList[x][y]%2) & (x+2 < 8) & (y+2 < 8)):
-			if(BoardList[x+2][y+2] == "  "):
-				BoardList[x+2][y+2] == BoardList[x][y]
-				listToAppend = []
-				listXY = []
-				listXY.append(x+2)
-				listXY.append(y+2)
-				tempRemoved.append(BoardList[x+1][y+1])
-				listToAppend.append(listXY)
-				listToAppend.append(tempRemoved)
-				fitnessIn = fitness + 3
-				listToAppend.append(xOriginal)
-				listToAppend.append(yOriginal)
-				listToAdd.append(listToAppend)
-				######APPEND CURRENT SOLUTION THEN ADD MORE recursively
-				recursivePlayerEngine(x+2,y+2, tempRemoved, listToAdd, fitnessIn, xOriginal, yOriginal)
-				###########recursive plus list##########
-				BoardList[x+2][y+2] == "  "
+		if BoardList[x+1][y+1] != "  " and BoardList[x][y] != "  ":						#### ADDED ###########################################################################
+			if ((BoardList[x+1][y+1]%2 != BoardList[x][y]%2) & (x+2 < 8) & (y+2 < 8)):
+				if(BoardList[x+2][y+2] == "  "):
+					BoardList[x+2][y+2] == BoardList[x][y]
+					listToAppend = []
+					listXY = []
+					listXY.append(x+2)
+					listXY.append(y+2)
+					tempRemoved.append(BoardList[x+1][y+1])
+					listToAppend.append(listXY)
+					listToAppend.append(tempRemoved)
+					fitnessIn += 3
+					listToAppend.append(fitnessIn)
+					listToAppend.append(xOriginal)
+					listToAppend.append(yOriginal)
+					listToAdd.append(listToAppend)
+					######APPEND CURRENT SOLUTION THEN ADD MORE recursively
+					recursiveAiEngine(x+2,y+2, tempRemoved, listToAdd, fitnessIn, xOriginal, yOriginal)
+					###########recursive plus list##########
+					BoardList[x+2][y+2] == "  "
 
 
 
@@ -460,26 +467,28 @@ def recursiveAiEngine(x,y, removedList, listToAdd, fitnessIn, xOriginal, yOrigin
 
 	############add over 50
 	tempRemoved = removedList
-	if(BoardList[x][y] > 49):
-		tempRemoved = removedList
-		if ((x-2 > -1) & (y+2 < 8) & (BoardList[x-1][y+1]%2 != BoardList[x][y]%2)):
-			if(BoardList[x-2][y+2] == "  "):
-				BoardList[x-2][y+2] == BoardList[x][y]
-				listToAppend = []
-				listXY = []
-				listXY.append(x-2)
-				listXY.append(y+2)
-				tempRemoved.append(BoardList[x-1][y+1])
-				listToAppend.append(listXY)
-				listToAppend.append(tempRemoved)
-				fitnessIn = fitness + 3
-				listToAppend.append(xOriginal)
-				listToAppend.append(yOriginal)
-				listToAdd.append(listToAppend)
-				######APPEND CURRENT SOLUTION THEN ADD MORE recursively
-				recursivePlayerEngine(x-2,y+2, tempRemoved, listToAdd, fitnessIn, xOriginal, yOriginal)
-				############recursive plus list##########
-				BoardList[x-2][y+2] == "  "
+	if BoardList[x][y] != "  ":
+		if(int(BoardList[x][y]) > 49):
+			tempRemoved = removedList
+			if ((x-2 > -1) & (y+2 < 8) & (BoardList[x-1][y+1]%2 != BoardList[x][y]%2)):
+				if(BoardList[x-2][y+2] == "  "):
+					BoardList[x-2][y+2] == BoardList[x][y]
+					listToAppend = []
+					listXY = []
+					listXY.append(x-2)
+					listXY.append(y+2)
+					tempRemoved.append(BoardList[x-1][y+1])
+					listToAppend.append(listXY)
+					listToAppend.append(tempRemoved)
+					fitnessIn += 3
+					listToAppend.append(fitnessIn)
+					listToAppend.append(xOriginal)
+					listToAppend.append(yOriginal)
+					listToAdd.append(listToAppend)
+					######APPEND CURRENT SOLUTION THEN ADD MORE recursively
+					recursiveAiEngine(x-2,y+2, tempRemoved, listToAdd, fitnessIn, xOriginal, yOriginal)
+					############recursive plus list##########
+					BoardList[x-2][y+2] == "  "
 
 
 		tempRemoved = removedList
@@ -495,12 +504,13 @@ def recursiveAiEngine(x,y, removedList, listToAdd, fitnessIn, xOriginal, yOrigin
 					tempRemoved.append(BoardList[x-1][y-1])
 					listToAppend.append(listXY)
 					listToAppend.append(tempRemoved)
-					fitnessIn = fitness + 3
+					fitnessIn += 3
+					listToAppend.append(fitnessIn)
 					listToAppend.append(xOriginal)
 					listToAppend.append(yOriginal)
 					listToAdd.append(listToAppend)
 					######APPEND CURRENT SOLUTION THEN ADD MORE recursively
-					recursivePlayerEngine(x-2,y-2, tempRemoved, listToAdd, fitnessIn, xOriginal, yOriginal)
+					recursiveAiEngine(x-2,y-2, tempRemoved, listToAdd, fitnessIn, xOriginal, yOriginal)
 					###########recursive plus list########## LEFT JUMP
 					BoardList[x-2][y-2] == "  "
 	return
@@ -518,10 +528,10 @@ def validateBoard(mod):#Kings pieces and returns false if game is over DONE
 
 	for x in BoardList:
 		for y in x:
-			if(y != "  "):
-				if(y%mod != 0):
-					return True
-	return False
+			if y != "  ":
+				if y%2 == mod:
+					return False
+	return True
 	
 def playerTurn():
 	# find all possible moves
@@ -590,16 +600,17 @@ def AIturn():
 					max_move = []
 					for move in tempList:
 						if move[2] > max_fit:
+							max_fit = move[2]
 							max_move = move
 							
 					listOfAI.append(max_move)
 	
 	max_fit = -1
 	max_move = []
-	print (listOfAI)
 	for move in listOfAI:
 		if len(move) > 0:
 			if move[2] > max_fit:
+				max_fit = move[2]
 				max_move = move
 	
 	new_x = max_move[0][0]
@@ -624,12 +635,13 @@ def runGame():
 	winner = 0
 	while(winner == 0):
 		playerTurn()
-		if validateBoard(1):
+		if validateBoard(0):
 			winner = 1
 			break
 		displayBoard()
 		AIturn()
-		if validateBoard(2):
+		displayBoard()
+		if validateBoard(1):
 			winner = 2
 
 	displayBoard()
