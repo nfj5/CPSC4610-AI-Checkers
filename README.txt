@@ -3,6 +3,8 @@ AI Checkers
 Nick Jones (jonesn6@seattleu.edu)
 Will Lathrop (lathropw@seattleu.edu)
 
+Video Of Code In Action: https://youtu.be/uYdUC5V2sNM
+
 RUN THE CODE:
 	python3 project.py
 
