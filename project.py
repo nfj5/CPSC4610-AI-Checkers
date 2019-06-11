@@ -47,8 +47,8 @@ def recursivePlayerPrimer(x,y): # {[[x,y],[jumped peices],true],
 
 	tempRemoved = removedList
 
-	if((x-1 > -1) & (y+1 < 8):
-		if(boardList[x-1][y+1] == "  "):
+	if((x-1 > -1) & (y+1 < 8)):
+		if(BoardList[x-1][y+1] == "  "):
 			listToAppend = []
 			listXY = []
 			listJumped = []
@@ -58,26 +58,26 @@ def recursivePlayerPrimer(x,y): # {[[x,y],[jumped peices],true],
 			listToAppend.append(listJumped)#done LEFT UPPER
 			listOfMoves.append(listToAppend)
 
-	else if((x-2 > -1) & (y+2 < 8) & (boardList[x-1][y+1]%2 != boardList[x][y]%2)):
-		if(boardList[x-2][y+2] == "  "):
-			boardList[x-2][y+2] == boardList[x][y]
-			tempRemoved.append(boardList[x+1][y+1])
+	elif ((x-2 > -1) & (y+2 < 8) & (BoardList[x-1][y+1]%2 != BoardList[x][y]%2)):
+		if(BoardList[x-2][y+2] == "  "):
+			BoardList[x-2][y+2] == BoardList[x][y]
+			tempRemoved.append(BoardList[x+1][y+1])
 			listToAppend = []
 			listXY = []
 			listXY.append(x-2)
 			listXY.appennd(y+2)
 			listJumped = []
-			listJumped.append(boardList[x-1][y+1])
+			listJumped.append(BoardList[x-1][y+1])
 			listToAppend######APPEND CURRENT SOLUTION THEN ADD MORE recursively
 			recursivePlayerEngine(x-2,y+2, tempRemoved, listToAppend)
 
 			############recursive plus list########## LEFT JUMP
-			boardList[x-2][y+2] == "  "
+			BoardList[x-2][y+2] == "  "
 
 	tempRemoved = removedList
 
-	if((x+1 < 8) & (y+1 < 8):
-		if(boardList[x+1][y+1] == "  "):
+	if((x+1 < 8) & (y+1 < 8)):
+		if(BoardList[x+1][y+1] == "  "):
 			listToAppend = []
 			listXY = []
 			listJumped = []
@@ -87,15 +87,15 @@ def recursivePlayerPrimer(x,y): # {[[x,y],[jumped peices],true],
 			listToAppend.append(listJumped)#done RIGHT UPPER
 			listOfMoves.append(listToAppend)
 
-		else if((boardList[x+1][y+1]%2 != boardList[x][y]%2) & (x+2 < 8) & (y+2 < 8)):
-			if(boardList[x+2][y+2] == "  "):
-				boardList[x+2][y+2] == boardList[x][y]
-				tempRemoved.append(boardList[x+1][y+1])
+		elif ((BoardList[x+1][y+1]%2 != BoardList[x][y]%2) & (x+2 < 8) & (y+2 < 8)):
+			if(BoardList[x+2][y+2] == "  "):
+				BoardList[x+2][y+2] == BoardList[x][y]
+				tempRemoved.append(BoardList[x+1][y+1])
 
 
 
 				####################recursive plus list########## RIGHT JUMP - copy above change numbers in coordinates
-				boardList[x+2][y+2] == "  "
+				BoardList[x+2][y+2] == "  "
 
 
 		##########################Add king functionality
@@ -110,30 +110,32 @@ def recursivePlayerEngine(x,y, removedList, listToAdd):
 	if(BoardList[x][y] > 50):
 		tempRemoved = removedList
 
-		if((x-1 > -1) & (y-1 > -1):
-			if(boardList[x-1][y-1] == "  "):
+		if((x-1 > -1) & (y-1 > -1)):
+			if(BoardList[x-1][y-1] == "  "):
 				#nonrecursive return
-			else if((boardList[x-1][y-1]%2 != boardList[x][y]%2) & (x-2 > -1) & (y-2 > -1)):
-				if(boardList[x-2][y-2] == "  "):
-					boardList[x-2][y-2] == boardList[x][y]
-					tempRemoved.append(boardList[x+1][y-1])
+				return
+			elif ((BoardList[x-1][y-1]%2 != BoardList[x][y]%2) & (x-2 > -1) & (y-2 > -1)):
+				if(BoardList[x-2][y-2] == "  "):
+					BoardList[x-2][y-2] == BoardList[x][y]
+					tempRemoved.append(BoardList[x+1][y-1])
 					#recursive plus list
-					boardList[x-2][y+2] == "  "
+					BoardList[x-2][y+2] == "  "
 
 		tempRemoved = removedList
 
-		if((x+1 < 8) & (y-1 > -1):
-			if(boardList[x+1][y-1] == "  "):
+		if((x+1 < 8) & (y-1 > -1)):
+			if(BoardList[x+1][y-1] == "  "):
 				#no recursive end
-			else if((boardList[x+1][y-1]%2 != boardList[x][y]%2) & (x-2 < 8) & (y-2 >0)):
-				if(boardList[x+2][y+2] == "  "):
-					boardList[x+2][y+2] == boardList[x][y]
-					tempRemoved.append(boardList[x+1][y-1])
+				return
+			elif ((BoardList[x+1][y-1]%2 != BoardList[x][y]%2) & (x-2 < 8) & (y-2 >0)):
+				if(BoardList[x+2][y+2] == "  "):
+					BoardList[x+2][y+2] == BoardList[x][y]
+					tempRemoved.append(BoardList[x+1][y-1])
 					#recursive plus list
-					boardList[x+2][y+2] == "  "
+					BoardList[x+2][y+2] == "  "
 
 
-	return 
+	return
 
 
 
@@ -147,14 +149,14 @@ def validateBoard(mod):#Kings pieces and returns false if game is over DONE
 
 	for x in BoardList:
 		for y in x:
-			if(y != " "):
+			if(y != "  "):
 				if(y%mod != 0):
 					return True
 	return False
 
 
 def moveForTurn():
-
+	return
 
 def AIturn():
 	listOfAI = []
@@ -163,17 +165,18 @@ def AIturn():
 		for y in range (8):
 			if BoardList[x][y]%2 == 1:
 				tempList = recursiveAIPrimer(x,y)
-				listOfAI.
+				#listOfAI.
+				
+	return
 
 
 def runGame():
 
-	populateBoard
-	displayBoard
+	populateBoard()
+	displayBoard()
 	winner = 0
 	while(winner == 0):
-
-		playerTurn():
+		playerTurn()
 		if(validateBoard(1) == False):
 			winner = 1
 			break
@@ -183,11 +186,6 @@ def runGame():
 			winner = 2
 
 	displayBoard()
-	if()
-
-
-
-	
 
 #Add valid move check
 #add Move
@@ -195,20 +193,4 @@ def runGame():
 #User input
 
 populateBoard()
-
-
 displayBoard()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
